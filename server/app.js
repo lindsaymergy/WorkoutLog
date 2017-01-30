@@ -25,6 +25,7 @@ sequelize.authenticate().then(
 	});
 
 User.sync();
+//DANGER THIS DROPS THE TABLE COMPLETELY
 //User.sync({force: true}); //drops the table completely 
 
 app.use(bodyParser.json());
