@@ -1,12 +1,13 @@
 require("dotenv").config();
 
+var sequelize = require("./db.js");
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-var sequelize = require("./db.js");
-
-
 var User = sequelize.import("./models/user");
+
+
+
 //a user model in sequelize
 User.sync();
 //DANGER THIS DROPS THE TABLE COMPLETELY
@@ -14,6 +15,8 @@ User.sync();
 
 
 app.use(bodyParser.json());
+
+
 app.use(require("./middleware/headers"));
 app.use(require("./middleware/validate-session"));
 
