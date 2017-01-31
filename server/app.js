@@ -10,9 +10,13 @@ User.sync();
 //DANGER THIS DROPS THE TABLE COMPLETELY
 //User.sync({force: true}); //drops the table completely 
 
+
 app.use(bodyParser.json());
 app.use(require("./middleware/headers"));
 app.use("/api/user", require("./routes/user"));
+
+//login route
+app.use("/api/login", require("./routes/session"));
 // app.post("/api/user", function(req, res){
 // 	//when we post to api user, it will want a user object in the body
 // 	var username = req.body.user.username;
