@@ -33,7 +33,7 @@ app.use("/api/login", require("./routes/session"));
 // 		passwordhash: ""
 
 // }).then(
-// 	//sequelize is going to return the object it created from db
+// 	sequelize is going to return the object it created from db
 // 			//sequelize is going to return the object it created from db
 // 			function createSuccess(user){
 // 				//successful gets this:
