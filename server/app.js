@@ -25,6 +25,7 @@ app.use("/api/user", require("./routes/user"));
 //login route
 app.use("/api/login", require("./routes/session"));
 app.use("/api/definition", require("./routes/definition"));
+app.use("/api/log", require("./routes/log"));
 
 // app.post("/api/user", function(req, res){
 // 	//when we post to api user, it will want a user object in the body
