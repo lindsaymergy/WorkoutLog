@@ -5,10 +5,10 @@ var Definition = sequelize.import("../models/definition");
 
 router.post("/", function(req, res){
 	//variables
-var description = req.body.definition.desc;
-var logType = req.body.definition.type;
-var owner = req.user.id;
-
+	console.log(req.user.id);
+	var description = req.body.definition.desc;
+	var logType = req.body.definition.type;
+	var owner = req.user.id;
 	//methods
 	Definition
 		.create({
@@ -28,8 +28,7 @@ var owner = req.user.id;
 			function createError(err){
 				res.send(500, err.message);
 			}
-
-			);
+		);
 });
 
 router.get("/", function(req, res) {
@@ -56,7 +55,9 @@ router.get("/", function(req, res) {
 
 			}
 
-	);
+		});	
+
+
 });
 
 module.exports = router;

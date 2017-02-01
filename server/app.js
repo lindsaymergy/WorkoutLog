@@ -1,27 +1,27 @@
 require("dotenv").config();
 
-var sequelize = require("./db.js");
+// var sequelize = require("./db.js");
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var sequelize = require("./db.js");
+
 var User = sequelize.import("./models/user");
 
 
 
 //a user model in sequelize
-User.sync();
+//User.sync();
 //DANGER THIS DROPS THE TABLE COMPLETELY
 //User.sync({force: true}); //drops the table completely 
 
-
+sequelize.sync();
 app.use(bodyParser.json());
 
 
-app.use(require("./middleware/headers"));
+app.use(require("./middleware/headers.js"));
 app.use(require("./middleware/validate-session"));
-
 app.use("/api/user", require("./routes/user"));
-
 //login route
 app.use("/api/login", require("./routes/session"));
 app.use("/api/definition", require("./routes/definition"));
@@ -62,7 +62,7 @@ app.use("/api/test", function(req, res){
 });
 
 app.listen(3000, function(){
-	console.log("app is listening on 3000");
+console.log("app is listening on 3000");
 });
 
 //creates the table in postgres
