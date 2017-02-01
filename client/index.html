@@ -40,6 +40,7 @@
 <div id="forLogout" style="display:none;">
 	<button class="btn btn-primary">Logout</button>
 </div>
+
 <!--DEFINE -->
 <div class="tab-pane" id="define">
 	<h2>Define</h2>
@@ -53,7 +54,23 @@
 	</select>
 	<button id="def-save" class="btn btn-primary">Save</button>
 </div>
-
+<!--FOR NEW FEATURE......LOG -->
+<div class="tab-pane" id="log">
+	<h2>log!</h2>
+	<label for="log-description">Result</label>
+	<textarea class="form-control" id="log-description" rows="1" ></textarea>
+	<label for="log-logtype">Workout Select: </label>
+	<select class="form-control" id="log-logtype">
+	<option></option>
+	<option></option>
+	<option></option>
+	<!--TODO: link up so that these options automatically come from workouts created in define section-->
+	</select>
+	<label for="log-notes">notes</label>
+	<textarea class="form-control" id="log-notes" rows="3" ></textarea>
+	<button id="log-save" class="btn btn-primary">Save</button>
+</div>
+<!-- END OF NEW FEATURE-->
 
 
 <!--MODAL FADE-->
