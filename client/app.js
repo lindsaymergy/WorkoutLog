@@ -54,6 +54,26 @@ $(document).on("keypress", function(e) {
 		}
 	}
 });
+
+	var token = window.localStorage.getItem("sessionToken");
+	if (token) {
+		WorkoutLog.setAuthHeader(token);
+	}
+
+	window.WorkoutLog = WorkoutLog;
+	
+
+$("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+	var target = $(e.target).attr("href"); //activated tab
+	if (target === "#log"){
+		WorkoutLog.log.setDefinitions();
+	}
+
+	if (target === "#history") {
+		WorkoutLog.log.setHistory();
+	}
+});
+
 //setHeader if we
 var token = window.localStorage.getItem("sessionToken");
 if (token) {
