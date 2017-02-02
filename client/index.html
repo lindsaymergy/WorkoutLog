@@ -14,7 +14,9 @@
 
 <body>
   <ul class="nav nav-tabs">
+
     <li><a href="#home" id="loginout" class="disabled" data-toggle="tab">Login</a></li>
+    <a href="#update-log" data-toggle="tab" class="disabled" type="hidden"></a>
 	<li class="active"><a href="#home" data-toggle="tab">Home</a></li>
 	<li><a href="#define" data-toggle="tab">Define</a></li>
 	<li><a href="#log" data-toggle="tab">Log</a></li>
@@ -60,15 +62,28 @@
 	<button id="log-save" class="btn btn-primary">Save</button>
 </div>
 
-
-
-<div class="tab-pane fade" id="history">
-		<h2>View History</h2>
-		<ul class="list-group" id="history-list">
-
-		</ul>
+<!--UPDATING A WORKOUT SECTION-->
+<div class="tab-pane fade" id="update-log">
+	<h2>Log Update</h2>
+	<label>Result</label>
+	<input type="hidden" class="form-control" id="update-id" />
+	<input type="text" class="form-control" id="update-result" />
+	<label>Workout Select:</label>
+	<select class="form-control" id="update-definition">
+	</select>
+	<label>notes</label>
+	<textarea class="form-control" id="update-description" rows="3" ></textarea>
+	<br />
+	<button id="log-update" class="btn btn-primary">Save</button>
 </div>
-	</div>
+
+	 <div class="tab-pane fade" id="history">
+			<h2>View History</h2>
+			<ul class="list-group" id="history-list">
+
+			</ul>
+	 </div>
+   </div>
 </div>
 
 

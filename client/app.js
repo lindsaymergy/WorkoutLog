@@ -69,6 +69,10 @@ $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
 		WorkoutLog.log.setDefinitions();
 	}
 
+	if (target === "#update-log") {
+		WorkoutLog.log.setDefinitions();
+	}
+
 	if (target === "#history") {
 		WorkoutLog.log.setHistory();
 	}
