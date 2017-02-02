@@ -28,15 +28,23 @@ $(function(){
 				WorkoutLog.setAuthHeader(data.sessionToken);
 				WorkoutLog.definition.fetchAll();
 				WorkoutLog.log.fetchAll();
-					console.log("You made it!");
-					console.log(data.sessionToken);
-
+					//console.log("You made it!");
+					//console.log(data.sessionToken);
 			}
 
 			$("#signup-modal").modal("hide");
 			$(".disabled").removeClass("disabled");
 			$("#loginout").text("Logout");
-		}).fail(function(){
+			// go to define tab
+
+			$('.nav-tabs a[href="define"]').tab("show");
+			//$('.nav-tabs a[href="#define"]').tab("show");
+
+			$("#su_username").val("");
+			$("#su_password").val("");
+		})
+
+		.fail(function(){
 			$("#su_error").text("There was an issue with sign up").show();
 		});
 
@@ -63,18 +71,24 @@ $(function(){
 			});
 
 			login.done(function(data){
-				console.log(data);
+				//console.log(data);
 				if(data.sessionToken){
 					WorkoutLog.setAuthHeader(data.sessionToken);
 					WorkoutLog.definition.fetchAll();
 					WorkoutLog.log.fetchAll();
 				}
+				//TODO: add logic to set user and auth token
 
 				$("#login-modal").modal("hide");
 				$(".disabled").removeClass("disabled");
 				$("#loginout").text("Logout");
+				$("#li_username").val("");
+				$("#li_password").val("");
 
-			}).fail(function(){
+				$('a[href="#define"]').tab("show");
+			})
+
+			.fail(function(){
 				$("#li_error").text("There was an issue with sign up").show();
 			});
 		},
@@ -92,26 +106,14 @@ $(function(){
 	});
 
 	//bind events
-	$("#signup").on("click", WorkoutLog.signup);
 	$("#login").on("click", WorkoutLog.login);
+	$("#signup").on("click", WorkoutLog.signup);
 	$("#loginout").on("click", WorkoutLog.loginout);
+
 
 	if(window.localStorage.getItem("sessionToken")){
 		$("#loginout").text("Logout");
 	}
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 

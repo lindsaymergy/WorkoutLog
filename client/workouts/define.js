@@ -10,15 +10,20 @@ $(function(){
 				};
 				var postData = { definition: def};
 				var define = $.ajax({
-					type: "POST",
-					url: WorkoutLog.API_BASE + "definition",
+
+			type: "POST",
+				url: WorkoutLog.API_BASE + "definition",
 					data: JSON.stringify(postData),
 					contentType: "application/json"
 				});
 
 				define.done(function(data){
+					WorkoutLog.definition.userDefinitions.push(data.definition);
+						$("def-description").val("");
+						$("#def-logtype").val("");
+						$('a[href="#log"]').tab("show");
 
-			WorkoutLog.definition.userDefinitions.push(data.definition);
+
 				});
 
 			},
@@ -50,14 +55,5 @@ $(function(){
 	if (window.localStorage.getItem("sessionToken")){
 		WorkoutLog.definition.fetchAll();
 	}
-
-
-
-
-
-
-
-
-
 
 });
